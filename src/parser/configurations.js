@@ -10,7 +10,7 @@ const DEFAULT_CONFIGS = {
             'request': 6,
             'status': 7,
             'body_bytes_sent': 8,
-            'http_referer': 9,
+            'http_referrer': 9,
             'http_user_agent': 10,
         },
         'formatters': {
