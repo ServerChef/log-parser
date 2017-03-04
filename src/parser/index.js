@@ -5,7 +5,7 @@ import parseConfig from './parseConfig'
 export const index = (req, res) => {
     res.send({
         'code': 0,
-        'availableOptions': Object.keys(configs)
+        'availableConfigs': Object.keys(configs)
     })
 };
 
@@ -14,7 +14,6 @@ export const serveLog = (req, res) => {
 
     return readFile(config.path)
         .then((lines) => {
-            console.log("success");
             const result = parseConfig(lines, config);
 
             res.send({
@@ -23,7 +22,7 @@ export const serveLog = (req, res) => {
             });
         })
         .catch(e => {
-            console.log("error caught");
+            res.status(400);
             res.send({
                 'code': 1,
                 'error': e
