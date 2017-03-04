@@ -1,5 +1,8 @@
-# es6-babel-express-mocha-starter
-Boilerplate for ES6 + Express.js + Mocha + Chai with Babel Edit
+# Log parser
+
+Convert any log file into JSON and serve it as an API.
+
+Forked from [es6-babel-express-mocha-starter](https://github.com/underscoredam/es6-babel-express-mocha-starter).
 
 ### Quick start
 
@@ -28,21 +31,52 @@ npm run build
 
 > Forked by [@underscoredam](https://github.com/underscoredam)
 
+
+## Routes
+### List available configurations
+* **URL**  `/`
+* **Methods** `GET`
+* **Responses**
+    * **Code**: 200
+    * **Response**:
+    ```javascript
+    {
+        "code": 0,
+        "availableConfigs": [<list of config>]
+    }
+    ```
+
+### Show log file for configuration
+* **URL** `/<config>`
+* **Methods** `GET`
+* **Responses**
+    * **Code**: 200
+    * **Response**:
+    ```javascript
+    {
+        "code": 0,
+        "logs": [<array of json objects>]
+    }
+    ```
+
+## Available logging configs
+### `nginx_access_log`
+Default nginx access log located at `/var/www/nginx/access.log`.
+* **Example row**:
+```javascript
+{
+    "remote_addr": "127.0.0.1",
+    "remote_user": "-",
+    "date": "26/Feb/2017:08:03:43 -0600",
+    "request": "HEAD / HTTP/1.1",
+    "status": 200,
+    "body_bytes_sent": 0,
+    "http_referrer": "-",
+}
+```
+
+
 ## License
 
-MIT Licensed
+The MIT License
 
-Copyright (c) 2015, [500Tech](http://500tech.com)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
-documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sub-license, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
-Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
-WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
