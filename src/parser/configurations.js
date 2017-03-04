@@ -1,4 +1,4 @@
-const integer = (x) => parseInt(x);
+import * as parsers from './parsers'
 
 const DEFAULT_CONFIGS = {
     'nginx_access_log': {
@@ -15,8 +15,8 @@ const DEFAULT_CONFIGS = {
         },
         'formatters': {
             'date': (x) => x.substring(1, x.length-1),
-            'body_bytes_sent': integer,
-            'status': integer
+            'body_bytes_sent': parsers.integer,
+            'status': parsers.integer
         }
     }
 };
