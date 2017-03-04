@@ -1,4 +1,4 @@
-# Log parser
+# Log parser [![Build Status](https://travis-ci.org/ServerChef/log-parser.svg?branch=master)](https://travis-ci.org/ServerChef/log-parser)
 
 Convert any log file into JSON and serve it as an API.
 
