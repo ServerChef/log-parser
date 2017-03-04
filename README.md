@@ -42,7 +42,7 @@ npm run build
     ```javascript
     {
         "code": 0,
-        "availableConfigs": [<list of config>]
+        "availableConfigs": ['nginx_access_log', ...]
     }
     ```
 
@@ -55,14 +55,14 @@ npm run build
     ```javascript
     {
         "code": 0,
-        "logs": [<array of json objects>]
+        "logs": [row1, row2, ...]
     }
     ```
 
 ## Available logging configs
 ### `nginx_access_log`
 Default nginx access log located at `/var/www/nginx/access.log`.
-* **Example row**:
+* **Example**:
 ```javascript
 {
     "remote_addr": "127.0.0.1",
