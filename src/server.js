@@ -1,17 +1,23 @@
-// Importing node modules
 import express from 'express';
-// Importing source files
 import routes from './routes/main.routes';
-// consts
+import fs from 'fs';
+
 const app = express();
+const listenOn=process.env.ON || 3000;
 
 app.use('/', routes);
 
-// arrow functions
-const server = app.listen(3000, () => {
-	// destructuring
-  const {address, port} = server.address();
-
-  // string interpolation:
-  console.log(`Example app listening at http://${address}:${port}`);
+if(typeof listenOn != "number" && fs.existsSync(listenOn)){
+    fs.unlinkSync(listenOn);
+}
+const server = app.listen(listenOn, () => {
+    let addr = server.address();
+    if (typeof addr === "string"){
+        //likely UNIX port. update permissions
+        fs.chmodSync(listenOn, '766');
+    }else{
+        addr = `http://${addr.address}:${addr.port}`;
+    }
+    
+    console.log(`Listening at ${addr}`);
 });
