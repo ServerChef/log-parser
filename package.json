@@ -11,14 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "4.13.3"
-  },
-  "devDependencies": {
+    "express": "4.13.3",
     "babel": "^5.8.29",
     "babel-cli": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-latest": "^6.22.0",
-    "babel-register": "^6.23.0",
+    "babel-register": "^6.23.0"
+  },
+  "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
     "nodemon": "1.8.0"
